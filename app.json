@@ -19,5 +19,6 @@
       }
     }
   },
-  "name": "savepass"
+  "name": "savepass",
+  "displayName": "savepass"
 }
