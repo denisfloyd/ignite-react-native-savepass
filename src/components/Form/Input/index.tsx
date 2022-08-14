@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { TextInputProps } from 'react-native';
-import { Control, Controller } from 'react-hook-form';
+import {
+  Control,
+  Controller,
+  FieldError,
+  FieldErrorsImpl,
+  Merge,
+} from "react-hook-form";
 
 import {
   Container,
@@ -9,14 +15,18 @@ import {
   InputContainer,
   FormInput,
   ToggleShowPassButton,
-  Icon
-} from './styles';
+  Icon,
+} from "./styles";
 
 interface Props extends TextInputProps {
-  control: Control;
+  control: Control<any>;
   name: string;
   title: string;
-  error: string;
+  error:
+    | string
+    | FieldError
+    | Merge<FieldError, FieldErrorsImpl<any>>
+    | undefined;
 }
 
 export function Input({
